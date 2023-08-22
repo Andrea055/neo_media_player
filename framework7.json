@@ -1,0 +1,26 @@
+{
+  "cwd": "/home/andreock/Desktop/work/iptv_player",
+  "type": [
+    "pwa",
+    "capacitor"
+  ],
+  "name": "Neo IPTV player",
+  "framework": "svelte",
+  "template": "tabs",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": true,
+    "color": "#b800ff",
+    "darkMode": true,
+    "iconFonts": true
+  },
+  "customBuild": false,
+  "pkg": "io.framework7.neo_iptv_player",
+  "capacitor": {
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}

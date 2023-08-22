@@ -1,0 +1,13 @@
+{
+  "appId": "io.framework7.neo_iptv_player",
+  "appName": "Neo IPTV player",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
