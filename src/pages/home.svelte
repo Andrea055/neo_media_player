@@ -145,6 +145,7 @@
       f7.dialog.close();
       return result.items;
     } catch (error) {
+      f7.dialog.alert(error);
       // Download something can fail, so notify at user
       f7.dialog.close(); // Close previous dialog
       f7.dialog.alert("Error during download of list");

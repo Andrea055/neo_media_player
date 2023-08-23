@@ -13,6 +13,7 @@
             type: "mse", // could also be mpegts, m2ts, flv
             isLive: true,
             url: $channel.url,
+            // cors: false
         });
         player.attachMediaElement(videoElement);
         player.load();
