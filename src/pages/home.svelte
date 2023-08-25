@@ -28,6 +28,7 @@
   import type { Channel } from "../types/channel";
   import { channel, groups, channels } from "../js/store";
   import { Picker } from "framework7/types";
+  import { Capacitor, CapacitorHttp } from "@capacitor/core";
 
   let root = null;
   let current_list;
@@ -127,8 +128,9 @@
       );
   }
 
+  // window.fetch =
   async function parse_list(list: import("../types/list").List) {
-    if(list == null) return [];  // When we delete all the lists parse_list will called with a null list so return an empty array
+    if (list == null) return []; // When we delete all the lists parse_list will called with a null list so return an empty array
     console.debug("Parsing list...");
     if ($channels.length > 0 && current_list == list) {
       // Check if we changed the list between current_list and cached one
@@ -138,8 +140,12 @@
     }
     try {
       f7.dialog.preloader("Downloading the list...");
-        let m3u = await (await fetch("https://corsproxy.io/?" + list.url)).text();  // Use corsproxy to avoid CORS issues
-      const result = parser.parse(m3u);
+      const proxy = Capacitor.getPlatform() == "web" ? "https://corsproxy.io/?" : ""; // Use CORS proxy only on web
+      let m3u = await CapacitorHttp.get({
+        url: proxy.concat(list.url.toString())
+      });
+
+      const result = parser.parse(m3u.data);
       $groups = filter_group(result.items); // Save the groups for groups page
       $channels = result.items; // Save the channels for groups page and go back to this page without download again whole list
       f7.dialog.close();
@@ -247,8 +253,18 @@
   <Popover class="popover-menu">
     <List>
       <ListItem link="/groups/" popoverClose title="Groups" />
-      <ListItem link="#" popoverClose title="Add new list" on:click={add_new_list}/>
-      <ListItem link="#" popoverClose title="Delete current list" on:click={delete_list}/>
+      <ListItem
+        link="#"
+        popoverClose
+        title="Add new list"
+        on:click={add_new_list}
+      />
+      <ListItem
+        link="#"
+        popoverClose
+        title="Delete current list"
+        on:click={delete_list}
+      />
     </List>
   </Popover>
   <List strongIos outlineIos>

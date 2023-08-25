@@ -120,6 +120,7 @@ export class ElectronCapacitorApp {
         // Use preload to inject the electron varriant overrides for capacitor plugins.
         // preload: join(app.getAppPath(), "node_modules", "@capacitor-community", "electron", "dist", "runtime", "electron-rt.js"),
         preload: preloadPath,
+        webSecurity: false, // Unfortunately this is the only way since mpegts.js depends on fetch and override window.fetch with custom IPC call it's too difficult for the moment
       },
     });
     this.mainWindowState.manage(this.MainWindow);
@@ -218,16 +219,5 @@ export class ElectronCapacitorApp {
 
 // Set a CSP up for our application based on the custom scheme
 export function setupContentSecurityPolicy(customScheme: string): void {
-  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        ...details.responseHeaders,
-        'Content-Security-Policy': [
-          electronIsDev
-            ? `default-src ${customScheme}://* 'unsafe-inline' devtools://* 'unsafe-eval' data:`
-            : `default-src ${customScheme}://* 'unsafe-inline' data:`,
-        ],
-      },
-    });
-  });
+  app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 }
