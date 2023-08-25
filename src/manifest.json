@@ -3,7 +3,7 @@
   "short_name": "Neo IPTV player",
   "description": "Neo IPTV player",
   "lang": "en-US",
-  "start_url": "/",
+  "start_url": "/neo_media_player",
   "display": "standalone",
   "background_color": "#b800ff",
   "theme_color": "#b800ff",
