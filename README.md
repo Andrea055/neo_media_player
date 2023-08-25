@@ -51,9 +51,9 @@ npm run build # Build PWA
 ## Roadmap
 
 - [ ] Add Changelog
-- [ ] Add Electron support
-- [ ] Add Media player section
-- [ ] Add search in IPTV section
+- [x] Add Electron support
+- [x] Add Media player section
+- [x] Add search in IPTV section
 - [ ] Add settings
 - [ ] Support multi language
 
