@@ -28,7 +28,7 @@ jobs:
         run: |
           cd electron
           npm i
-          npm run build electron:pack
+          npm run electron:pack
           cd ..
 
       - name: Upload artifacts to
@@ -36,6 +36,8 @@ jobs:
         with:
           name: Build
           path: |
-            electron/dist/*.AppImage
-            electron/dist/*.dmg
-            electron/dist/*.exe
+            ./electron/dist/*.AppImage
+            ./electron/dist/*.dmg
+            ./electron/dist/*.exe
+            ./dist/
+            ./electron/dist/
