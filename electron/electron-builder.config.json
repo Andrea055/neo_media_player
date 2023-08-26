@@ -1,5 +1,5 @@
 {
-  "appId": "com.yourdoamnin.yourapp",
+  "appId": "com.andreock.neo_iptv_player",
   "directories": {
     "buildResources": "resources"
   },
@@ -22,7 +22,13 @@
     "icon": "assets/appIcon.ico"
   },
   "mac": {
-    "category": "your.app.category.type",
+    "category": "public.app-category.video",
     "target": "dmg"
+  },
+  "snap": {
+    "publish": {
+      "provider": "generic",
+      "url": "https://anydummyurl.com"
+    }
   }
 }

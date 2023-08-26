@@ -1,5 +1,5 @@
 {
-  "name": "Neo IPTV player",
+  "name": "neo_iptv_player_electron",
   "version": "1.0.0",
   "description": "An Amazing Capacitor App",
   "author": {
@@ -8,12 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Andrea055/neo_media_player"
   },
   "license": "MIT",
   "main": "build/src/index.js",
   "scripts": {
     "build": "tsc && electron-rebuild",
+    "clean": "rimraf app build dist",
     "electron:start-live": "node ./live-runner.js",
     "electron:start": "npm run build && electron --inspect=5858 ./",
     "electron:pack": "npm run build && electron-builder build --dir -c ./electron-builder.config.json",
@@ -26,7 +27,8 @@
     "electron-serve": "~1.1.0",
     "electron-unhandled": "~4.0.1",
     "electron-updater": "~5.0.1",
-    "electron-window-state": "~5.0.3"
+    "electron-window-state": "~5.0.3",
+    "rimraf": "^5.0.1"
   },
   "devDependencies": {
     "electron": "^19.0.0",

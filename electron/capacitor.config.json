@@ -1,6 +1,6 @@
 {
-  "appId": "io.framework7.neo_iptv_player",
-  "appName": "Neo IPTV player",
+  "appId": "io.andreock.neo_media_player",
+  "appName": "neo Media Player",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
