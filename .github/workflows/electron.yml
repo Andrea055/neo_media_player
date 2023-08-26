@@ -29,6 +29,7 @@ jobs:
           cd electron
           npm i
           npm run electron:pack
+          npm run electron:make
           cd ..
 
       - name: Upload artifacts to
