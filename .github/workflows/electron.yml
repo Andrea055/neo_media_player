@@ -20,21 +20,11 @@ jobs:
           node-version: 18
 
       - name: Build Capacitor App
-        run: |
-          npm i
-          npm run build-capacitor-electron
+        run: bash build_electron.sh
 
-      - name: Build Electron app
-        run: |
-          cd electron
-          npm i
-          npm run build electron:make
-          cd ..
-          
       - name: Upload artifacts to
         uses: actions/upload-artifact@v3
         with:
           name: Build
           path: |
-            dist/
-            electron/dist/
+            ./electron/dist/
