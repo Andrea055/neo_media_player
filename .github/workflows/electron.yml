@@ -29,12 +29,12 @@ jobs:
           cd electron
           npm i
           npm run build electron:make
-
+          cd ..
+          
       - name: Upload artifacts to
         uses: actions/upload-artifact@v3
         with:
           name: Build
           path: |
-            dist/*.AppImage
-            dist/*.dmg
-            dist/*.exe
+            dist/
+            electron/dist/
