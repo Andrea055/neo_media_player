@@ -14,7 +14,7 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v1
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Setup node
         uses: actions/setup-node@v1
         with:
           node-version: 18
@@ -35,6 +35,6 @@ jobs:
         with:
           name: Build
           path: |
-            electron/dist/*.AppImage
-            electron/dist/*.dmg
-            electron/dist/*.exe
+            dist/*.AppImage
+            dist/*.dmg
+            dist/*.exe
