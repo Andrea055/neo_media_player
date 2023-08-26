@@ -24,12 +24,14 @@ jobs:
           npm i
           npm run build-capacitor-electron
 
-      - name: Build/release Electron app
+      - name: Build Electron app
         run: |
+          cd electron
+          npm i
           npm run build electron:make
 
       - name: Upload artifacts to
         uses: actions/upload-artifact@v3
         with:
           name: Build
-          path: dist/
+          path: electron/dist
