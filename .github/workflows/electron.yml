@@ -39,5 +39,3 @@ jobs:
             ./electron/dist/*.AppImage
             ./electron/dist/*.dmg
             ./electron/dist/*.exe
-            ./dist/
-            ./electron/dist/
