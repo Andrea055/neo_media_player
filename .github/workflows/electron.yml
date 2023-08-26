@@ -29,14 +29,5 @@ jobs:
           cd electron
           npm i
           npm run electron:pack
-          npm run electron:make
+          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} npm run electron:make
           cd ..
-
-      - name: Upload artifacts to
-        uses: actions/upload-artifact@v3
-        with:
-          name: Build
-          path: |
-            ./electron/dist/*.AppImage
-            ./electron/dist/*.dmg
-            ./electron/dist/*.exe
